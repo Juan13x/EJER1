@@ -1,0 +1,43 @@
+<resources>
+    <!--Text-->
+    <string name = "app_name">FORMULARIO</string>
+    <string name = "main_title">FORMULARIO</string>
+    <string name = "main_name">Nombre</string>
+    <string name = "main_email">Email</string>
+    <string name = "main_password">Password</string>
+    <string name = "main_repeatPassword">Confirme Password</string>
+    <string name = "main_gender">Sexo</string>
+    <string name = "main_gender1">Hombre</string>
+    <string name = "main_gender2">Mujer</string>
+    <string name = "main_hobbies">Hobbies</string>
+    <string name = "main_hobbie1">Cantar</string>
+    <string name = "main_hobbie2">Futbol</string>
+    <string name = "main_hobbie3">Estudiar</string>
+    <string name = "main_hobbie4">Natación</string>
+    <string name = "main_birthDate">Fecha Nacimiento</string>
+    <string name = "main_openDatapicker">Fecha</string>
+    <string name = "main_city_info">Ciudad Materna</string>
+    <string name = "main_city">Ciudad</string>
+    <string name = "main_save">Guardar</string>
+    <string name = "main_result">Nombre: %1$s, Email: %2$s
+        \nPassword: %3$s
+        \nSexo: %4$s
+        \nHobbies: %5$s
+        \nFecha Nacimiento: %6$s
+        \nCiudad Nacimiento: %7$s
+    </string>
+    <!--Hints-->
+    <string name = "main_name_hint">Ingrese Nombre</string>
+    <string name = "main_email_hint">Ingrese Email</string>
+    <string name = "main_password_hint">Ingrese Password</string>
+    <string name = "main_repeatPassword_hint">Reingrese la contraseña</string>
+    <string name="main_different_password">Las contraseñas son diferentes</string>
+    <!--Arrays-->
+    <string-array name= "main_selection">
+        <item>Medellín</item>
+        <item>Bogotá</item>
+        <item>Cartagena</item>
+        <item>Barranquilla</item>
+        <item>Riohacha</item>
+    </string-array>
+</resources>

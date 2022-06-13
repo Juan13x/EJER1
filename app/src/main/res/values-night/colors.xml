@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--GLOBAL-->
+    <!--Text-->
+    <color name="main_title">@color/White</color>
+    <color name="main_textviews_info_text">@color/Yellow</color>
+    <color name="main_input_text">@color/White</color>
+    <color name="main_input_hint_text">@color/White</color>
+    <color name="main_boxes_text">@color/White</color>
+    <color name="main_button_text">@color/black</color>
+    <color name="main_button_save_text">@color/White</color>
+    <color name="main_input_empty_text">@color/White</color>
+    <!--Background-->
+    <color name="main_textviews_info_Bground">@color/Black</color>
+    <color name="main_input_Bground">@color/Crimson</color>
+    <color name="main_boxes_Bground">@color/Crimson</color>
+    <color name="main_button_Bground">@color/Chartreuse</color>
+    <color name="main_button_save_Bground">@color/Crimson</color>
+    <color name="main_input_empty_Bground">@color/Crimson</color>
+    <!--Extras-->
+    <!--Button tint-->
+    <color name="main_radio_buttton_tint">@color/Crimson</color>
+</resources>

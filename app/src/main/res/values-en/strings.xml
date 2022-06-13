@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Text-->
+    <string name = "app_name">FORMULARY</string>
+    <string name = "main_title">FORMULARY</string>
+    <string name = "main_name">Name</string>
+    <string name = "main_email">Email</string>
+    <string name = "main_password">Password</string>
+    <string name = "main_repeatPassword">Confirm Password</string>
+    <string name = "main_gender">Sex</string>
+    <string name = "main_gender1">Male</string>
+    <string name = "main_gender2">Female</string>
+    <string name = "main_hobbies">Hobbies</string>
+    <string name = "main_hobbie1">Sing</string>
+    <string name = "main_hobbie2">Futball</string>
+    <string name = "main_hobbie3">Study</string>
+    <string name = "main_hobbie4">Swimming</string>
+    <string name = "main_birthDate">Birth Date</string>
+    <string name = "main_openDatapicker">Date</string>
+    <string name = "main_city_info">Hometown</string>
+    <string name = "main_city">City</string>
+    <string name = "main_save">Save</string>
+    <string name = "main_result">Name: %1$s, Email: %2$s
+        \nPassword: %3$s
+        \nGender: %4$s
+        \nHobbies: %5$s
+        \nBirth Date: %6$s
+        \nBirth City: %7$s
+    </string>
+    <!--Hints-->
+    <string name = "main_name_hint">Input name</string>
+    <string name = "main_email_hint">Input Email</string>
+    <string name = "main_password_hint">Input Password</string>
+    <string name = "main_repeatPassword_hint">Reenter Password</string>
+    <string name="main_different_password">The Passwords are different</string>
+    <!--Arrays-->
+    <string-array name= "main_selection">
+        <item>Medellín</item>
+        <item>Bogotá</item>
+        <item>Cartagena</item>
+        <item>Barranquilla</item>
+        <item>Riohacha</item>
+    </string-array>
+</resources>

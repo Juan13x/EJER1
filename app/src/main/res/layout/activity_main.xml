@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_title"
+        android:textColor="@color/main_title"
+        android:textSize="@dimen/main_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_name"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_textView" />
+
+    <EditText
+        android:id="@+id/name_editText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_input_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints="name"
+        android:background="@color/main_input_Bground"
+        android:ems="10"
+        android:hint="@string/main_name_hint"
+        android:inputType="textPersonName"
+        android:textColor="@color/main_input_text"
+        android:textColorHint="@color/main_input_hint_text"
+        android:textSize="@dimen/main_input_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_textView"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/email_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_email"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_editText" />
+
+    <EditText
+        android:id="@+id/email_editText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_input_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints="emailAddress"
+        android:background="@color/main_input_Bground"
+        android:ems="10"
+        android:hint="@string/main_email_hint"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/main_input_text"
+        android:textColorHint="@color/main_input_hint_text"
+        android:textSize="@dimen/main_input_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_textView"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/password_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_password"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_editText" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_password_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:counterOverflowTextColor="@color/DarkRed"
+        app:endIconMode="password_toggle"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/main_input_hint_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_textView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_textInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_input_Bground"
+            android:hint="@string/main_password_hint"
+            android:inputType="textPassword"
+            android:textColor="@color/main_input_text"
+            android:textSize="@dimen/main_input_text"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/repeatePassword_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_repeatPassword"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_textInputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/repeatePassword_textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_password_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:counterOverflowTextColor="@color/DarkRed"
+        app:endIconMode="password_toggle"
+        app:hintTextColor="@color/main_input_hint_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repeatePassword_textView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/repeatePassword_textInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_input_Bground"
+            android:hint="@string/main_repeatPassword_hint"
+            android:inputType="textPassword"
+            android:textColor="@color/main_input_text"
+            android:textColorHint="#616161"
+            android:textSize="@dimen/main_input_text"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/gender_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_gender"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repeatePassword_textInputLayout" />
+
+    <RadioGroup
+        android:id="@+id/gender_radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_input_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_textView">
+
+        <RadioButton
+            android:id="@+id/gender1_radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/main_boxes_Bground"
+            android:buttonTint="@color/main_radio_buttton_tint"
+            android:text="@string/main_gender1"
+            android:textColor="@color/main_boxes_text"
+            android:textSize="@dimen/main_boxes_text"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/gender2_radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/main_boxes_Bground"
+            android:buttonTint="@color/main_radio_buttton_tint"
+            android:checked="false"
+            android:text="@string/main_gender2"
+            android:textColor="@color/main_boxes_text"
+            android:textSize="@dimen/main_boxes_text"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/hobbies_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_hobbies"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_radioGroup" />
+
+    <LinearLayout
+        android:id="@+id/hobbies_linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_input_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbies_textView">
+
+        <CheckBox
+            android:id="@+id/hobbie1_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@color/main_boxes_Bground"
+            android:text="@string/main_hobbie1"
+            android:textColor="@color/main_boxes_text"
+            android:textSize="@dimen/main_boxes_text"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <CheckBox
+            android:id="@+id/hobbie2_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@color/main_boxes_Bground"
+            android:text="@string/main_hobbie3"
+            android:textColor="@color/main_boxes_text"
+            android:textSize="@dimen/main_boxes_text"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <CheckBox
+            android:id="@+id/hobbie3_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@color/main_boxes_Bground"
+            android:text="@string/main_hobbie4"
+            android:textColor="@color/main_boxes_text"
+            android:textSize="@dimen/main_boxes_text"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <CheckBox
+            android:id="@+id/hobbie4_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@color/main_boxes_Bground"
+            android:text="@string/main_hobbie2"
+            android:textColor="@color/main_boxes_text"
+            android:textSize="@dimen/main_boxes_text"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/birthDate_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_birthDate"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbies_linearLayout" />
+
+    <Button
+        android:id="@+id/openDatePicker_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_button_height"
+        android:layout_marginStart="16dp"
+        android:height="@dimen/main_button_height"
+        android:backgroundTint="@color/main_button_Bground"
+        android:text="@string/main_openDatapicker"
+        android:textAllCaps="false"
+        android:textColor="@color/main_button_text"
+        android:textSize="@dimen/main_button_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthDate_textView"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/city_textView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_textviews_info_height"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:layout_marginEnd="16dp"
+        android:background="@color/main_textviews_info_Bground"
+        android:text="@string/main_city_info"
+        android:textAlignment="textEnd"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/birthDate_textView"
+        app:layout_constraintTop_toBottomOf="@id/hobbies_linearLayout" />
+
+    <Spinner
+        android:id="@+id/city_spinner"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_boxes_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:entries="@array/main_selection"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/openDatePicker_button"
+        app:layout_constraintTop_toBottomOf="@+id/city_textView"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <RelativeLayout
+        android:id="@+id/save_relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openDatePicker_button">
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/main_button_save_height"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/main_button_save_Bground"
+            android:text="@string/main_save"
+            android:textColor="@color/main_button_save_text"
+            android:textSize="@dimen/main_button_text"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/result_textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/main_up_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/main_textviews_info_Bground"
+        android:singleLine="false"
+        android:textColor="@color/main_textviews_info_text"
+        android:textSize="@dimen/main_textviews_info_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save_relativeLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

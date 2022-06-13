@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--GLOBAL-->
+    <!--Text-->
+    <dimen name="main_title">24sp</dimen>
+    <dimen name="main_textviews_info_text">14sp</dimen>
+    <dimen name="main_input_text">18sp</dimen>
+    <dimen name="main_boxes_text">14sp</dimen>
+    <dimen name="main_button_text">18sp</dimen>
+    <!--Height-->
+    <dimen name="main_textviews_info_height">20dp</dimen>
+    <dimen name="main_input_height">40dp</dimen>
+    <dimen name="main_password_height">55dp</dimen>
+    <dimen name="main_boxes_height">40dp</dimen>
+    <dimen name="main_button_height">40dp</dimen>
+    <dimen name="main_button_save_height">45dp</dimen>
+    <!--Margins-->
+    <dimen name = "main_up_margin">5dp</dimen>
+</resources>
