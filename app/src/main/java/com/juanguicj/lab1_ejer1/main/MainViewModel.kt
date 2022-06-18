@@ -20,7 +20,7 @@ class MainViewModel : ViewModel() {
         calendar.set(Calendar.DAY_OF_MONTH, day)
 
         val format = "dd/MM/yyyy"
-        val sdf = SimpleDateFormat(format)
+        val sdf = SimpleDateFormat(format,  Locale.US)
         birthdateMutableLiveData.value = sdf.format(calendar.time).toString()
     }
 
@@ -90,9 +90,11 @@ class MainViewModel : ViewModel() {
             hobbies += ", " + hobbiesText[3]
         if (hobbiesState[4] == true)
             hobbies += ", " + hobbiesText[4]
-        if (hobbies.isNotBlank()) {
-            if (hobbies.substring(0, 2) == ", ")
-                hobbies = hobbies.substring(2, hobbies.lastIndex + 1)
+        when {
+            hobbies.isNotBlank() -> {
+                if (hobbies.substring(0, 2) == ", ")
+                    hobbies = hobbies.substring(2, hobbies.lastIndex + 1)
+            }
         }
         return hobbies
     }
