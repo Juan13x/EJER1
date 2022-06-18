@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.juanguicj.lab1_ejer1.R
 import com.juanguicj.lab1_ejer1.databinding.ActivityMainBinding
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.concurrent.timerTask
 
