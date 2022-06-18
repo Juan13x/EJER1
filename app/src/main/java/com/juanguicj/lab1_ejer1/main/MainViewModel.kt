@@ -1,16 +1,18 @@
 package com.juanguicj.lab1_ejer1.main
 
-import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.juanguicj.lab1_ejer1.R
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.concurrent.timerTask
 
-class MainViewModel: ViewModel() {
-    val calendar = Calendar.getInstance()
+class MainViewModel : ViewModel() {
+    private val calendar: Calendar = Calendar.getInstance()
+    private lateinit var hobbiesState: Map<Int, Boolean>
+    private lateinit var hobbiesText: Map<Int, String>
+    private lateinit var genderText: Map<Int, String>
+    private lateinit var resourcesThis: Map<Int, String>
 
     fun getBirthdate(year: Int, month: Int, day: Int) {
         calendar.set(Calendar.YEAR, year)
@@ -19,19 +21,31 @@ class MainViewModel: ViewModel() {
 
         val format = "dd/MM/yyyy"
         val sdf = SimpleDateFormat(format)
-        birthdate.value = sdf.format(calendar.time).toString()
+        birthdateMutableLiveData.value = sdf.format(calendar.time).toString()
     }
 
-    fun getCalendarYear(): Int{
+    fun getCalendarYear(): Int {
         return calendar.get(Calendar.YEAR)
     }
 
-    fun getCalendarMonth(): Int{
+    fun getCalendarMonth(): Int {
         return calendar.get(Calendar.MONTH)
     }
 
-    fun getCalendarDay(): Int{
+    fun getCalendarDay(): Int {
         return calendar.get(Calendar.DAY_OF_MONTH)
+    }
+
+    fun setTextsAndResources(
+        _hobbiesState: Map<Int, Boolean>,
+        _hobbiesText: Map<Int, String>,
+        _genderText: Map<Int, String>,
+        _resourcesThis: Map<Int, String>
+    ){
+        hobbiesState  = _hobbiesState
+        hobbiesText = _hobbiesText
+        genderText = _genderText
+        resourcesThis = _resourcesThis
     }
 
     fun process(
@@ -39,59 +53,19 @@ class MainViewModel: ViewModel() {
         email: String,
         password: String,
         repPassword: String,
-        hobbiesState: Map<Int,Boolean>,
-        hobbiesText: Map<Int,String>,
         genderChecked: Boolean,
-        genderText: Map<Int,String>,
         birthdateThis: String,
-        city: String,
-        resourcesThis: Map<Int,String>
+        city: String
     ) {
-        var empty = false
+        val empty = checkEmptiness(name, email, password, repPassword, birthdateThis)
 
-        if (name.isEmpty()) {
-            isNameEmpty.value = true
-            empty = true
-        }
-        if (email.isEmpty()) {
-            isEmailEmpty.value = true
-            empty = true
-        }
-        if (password.isNullOrEmpty()) {
-            isPasswordEmpty.value = true
-            empty = true
-        }
-        if (repPassword.isNullOrEmpty()) {
-            isRepeatPasswordEmpty.value = true
-            empty = true
-        }
-        if (birthdateThis == resourcesThis[R.string.main_openDatapicker]) {
-            isBirthDateEmpty.value = true
-            empty = true
-        }
-
-        if(empty){
-            result.value = ""
-        }
-        else{
-            var hobbies = ""
-            if (hobbiesState[1] == true)
-                hobbies += hobbiesText[1]
-            if (hobbiesState[2] == true)
-                hobbies += ", " + hobbiesText[2]
-            if (hobbiesState[3] == true)
-                hobbies += ", " + hobbiesText[3]
-            if (hobbiesState[4] == true)
-                hobbies += ", " + hobbiesText[4]
-            if (hobbies.isNotBlank()){
-                if(hobbies.substring(0, 2) == ", ")
-                    hobbies =  hobbies.substring(2, hobbies.lastIndex + 1)
-            }
-
+        if (empty) {
+            resultMutableLiveData.value = ""
+        } else {
+            val hobbies = hobbies()
             val gender = if (genderChecked) genderText[1] else genderText[2]
-            
-            if(repPassword == password){
-                result.value = String.format(
+            if (repPassword == password) {
+                resultMutableLiveData.value = String.format(
                     resourcesThis[R.string.main_result].toString(),
                     name,
                     email,
@@ -101,25 +75,72 @@ class MainViewModel: ViewModel() {
                     birthdateThis,
                     city
                 )
-            }
-            else
-                result.value = resourcesThis[R.string.main_different_password]
+            } else
+                resultMutableLiveData.value = resourcesThis[R.string.main_different_password]
         }
     }
 
-    private val birthdate : MutableLiveData<String> = MutableLiveData()
-    val _birthdate: LiveData<String> = birthdate
-    private val isNameEmpty : MutableLiveData<Boolean> = MutableLiveData()
-    val _isNameEmpty: LiveData<Boolean> = isNameEmpty
-    private val isEmailEmpty : MutableLiveData<Boolean> = MutableLiveData()
-    val _isEmailEmpty: LiveData<Boolean> = isEmailEmpty
-    private val isPasswordEmpty : MutableLiveData<Boolean> = MutableLiveData()
-    val _isPasswordEmpty: LiveData<Boolean> = isPasswordEmpty
-    private val isRepeatPasswordEmpty : MutableLiveData<Boolean> = MutableLiveData()
-    val _isRepeatPasswordEmpty: LiveData<Boolean> = isRepeatPasswordEmpty
-    private val isBirthDateEmpty : MutableLiveData<Boolean> = MutableLiveData()
-    val _isBirthDateEmpty: LiveData<Boolean> = isBirthDateEmpty
-    private val result : MutableLiveData<String> = MutableLiveData()
-    val _result: LiveData<String> = result
+    private fun hobbies(): String {
+        var hobbies = ""
+        if (hobbiesState[1] == true)
+            hobbies += hobbiesText[1]
+        if (hobbiesState[2] == true)
+            hobbies += ", " + hobbiesText[2]
+        if (hobbiesState[3] == true)
+            hobbies += ", " + hobbiesText[3]
+        if (hobbiesState[4] == true)
+            hobbies += ", " + hobbiesText[4]
+        if (hobbies.isNotBlank()) {
+            if (hobbies.substring(0, 2) == ", ")
+                hobbies = hobbies.substring(2, hobbies.lastIndex + 1)
+        }
+        return hobbies
+    }
+
+    private fun checkEmptiness(
+        name: String,
+        email: String,
+        password: String,
+        repPassword: String,
+        birthdateThis: String
+    ): Boolean {
+        var empty1 = false
+        if (name.isEmpty()) {
+            isNameEmptyMutableLiveData.value = true
+            empty1 = true
+        }
+        if (email.isEmpty()) {
+            isEmailEmptyMutableLiveData.value = true
+            empty1 = true
+        }
+        if (password.isEmpty()) {
+            isPasswordEmptyMutableLiveData.value = true
+            empty1 = true
+        }
+        if (repPassword.isEmpty()) {
+            isRepeatPasswordEmptyMutableLiveData.value = true
+            empty1 = true
+        }
+        if (birthdateThis == resourcesThis[R.string.main_openDatapicker]) {
+            isBirthDateEmptyMutableLiveData.value = true
+            empty1 = true
+        }
+        return empty1
+    }
+
+    private val birthdateMutableLiveData: MutableLiveData<String> = MutableLiveData()
+    val birthdateLiveData: LiveData<String> = birthdateMutableLiveData
+    private val isNameEmptyMutableLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val isNameEmptyLiveData: LiveData<Boolean> = isNameEmptyMutableLiveData
+    private val isEmailEmptyMutableLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val isEmailEmptyLiveData: LiveData<Boolean> = isEmailEmptyMutableLiveData
+    private val isPasswordEmptyMutableLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val isPasswordEmptyLiveData: LiveData<Boolean> = isPasswordEmptyMutableLiveData
+    private val isRepeatPasswordEmptyMutableLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val isRepeatPasswordEmptyLiveData: LiveData<Boolean> = isRepeatPasswordEmptyMutableLiveData
+    private val isBirthDateEmptyMutableLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val isBirthDateEmptyLiveData: LiveData<Boolean> = isBirthDateEmptyMutableLiveData
+    private val resultMutableLiveData: MutableLiveData<String> = MutableLiveData()
+    val resultLiveData: LiveData<String> = resultMutableLiveData
 }
 
