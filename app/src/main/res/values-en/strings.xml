@@ -33,6 +33,8 @@
     <string name = "main_password_hint">Input Password</string>
     <string name = "main_repeatPassword_hint">Reenter Password</string>
     <string name="main_different_password">The Passwords are different</string>
+    <string name="splash_app_name">Formulary</string>
+    <string name="splash_title">Formulary</string>
     <!--Arrays-->
     <string-array name= "main_selection">
         <item>Medellín</item>

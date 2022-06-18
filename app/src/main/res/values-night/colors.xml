@@ -17,6 +17,7 @@
     <color name="main_button_Bground">@color/Chartreuse</color>
     <color name="main_button_save_Bground">@color/Crimson</color>
     <color name="main_input_empty_Bground">@color/Crimson</color>
+    <color name="splash_title">@color/white</color>
     <!--Extras-->
     <!--Button tint-->
     <color name="main_radio_buttton_tint">@color/Crimson</color>

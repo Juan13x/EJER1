@@ -20,4 +20,5 @@
     <!--Extras-->
     <!--Button tint-->
     <color name="main_radio_buttton_tint">@color/Crimson</color>
+    <color name="splash_title">@color/white</color>
 </resources>
